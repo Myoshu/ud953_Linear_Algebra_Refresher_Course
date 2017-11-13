@@ -1,3 +1,5 @@
+import numpy
+
 class Vector(object):
     def __init__(self, coordinates):
         try:
@@ -18,4 +20,19 @@ class Vector(object):
 
 
     def __eq__(self, v):
-        return self.coordinates == v.coordinates 
+        return self.coordinates == v.coordinates
+
+    def plus(self, v):
+        return numpy.add(self.coordinates, v.coordinates)
+        
+        #new_coordinates = [x+y for x,y in zip(self.coordinates, v.coordinates)]
+
+    def minus(self, v):
+        return numpy.subtract(self.coordinates, v.coordinates)
+
+        #new_coordinates = [x-y for x,y in zip(self.coordinates, v.coordinates)]
+
+    def scalar(self, multiplier):
+        return numpy.multiply(multiplier, self.coordinates)
+
+        #new_coordinates = [multiplier*x for x in self.coordinates]
