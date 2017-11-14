@@ -1,12 +1,15 @@
 import numpy
 from math import sqrt, acos
+from decimal import Decimal, getcontext
+
+getcontext().prec = 6 #add tolerance=1e-10 instead
 
 class Vector(object):
     def __init__(self, coordinates):
         try:
             if not coordinates:
                 raise ValueError
-            self.coordinates = tuple(coordinates)
+            self.coordinates = tuple([Decimal(x) for x in coordinates])
             self.dimension = len(coordinates)
 
         except ValueError:
@@ -58,3 +61,9 @@ class Vector(object):
 
     def angle(self, v):
         return acos(self.dot_product(v)/(self.magnitude()*v.magnitude()))
+
+    def is_parallel(self, v):
+        return sum([abs(x) % abs(y) for x,y in zip(v.coordinates, self.coordinates)]) == 0
+
+    def is_orthogonal(self, v):
+        return self.dot_product(v) == 0

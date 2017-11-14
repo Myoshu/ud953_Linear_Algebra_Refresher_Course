@@ -2,25 +2,29 @@ from vector import Vector
 from math import degrees
 
 def main():
-    v1 = Vector([7.887, 4.138])
-    v2 = Vector([-8.802, 6.776])
+    v1 = Vector([7.579, -7.88])
+    v2 = Vector([22.737, 23.64])
 
-    print(v1.dot_product(v2))
+    print(v1.is_parallel(v2))
+    print(v1.is_orthogonal(v2))
 
-    v3 = Vector([-5.955, -4.904, -1.874])
-    v4 = Vector([-4.496, -8.755, 7.103])
+    v3 = Vector([-2.029, 9.97, 4.172])
+    v4 = Vector([-9.231, -6.639, -7.245])
 
-    print(v3.dot_product(v4))
+    print(v3.is_parallel(v4))
+    print(v3.is_orthogonal(v4))
 
-    v5 = Vector([3.183, -7.627])
-    v6 = Vector([-2.668, 5.319])
+    v5 = Vector([-2.328, -7.284, -1.214])
+    v6 = Vector([-1.821, 1.072, -2.94])
 
-    print(v5.angle(v6))
+    print(v5.is_parallel(v6))
+    print(v5.is_orthogonal(v6))
 
-    v7 = Vector([7.35, 0.221, 5.188])
-    v8 = Vector([2.751, 8.259, 3.985])
+    v7 = Vector([2.118, 4.827])
+    v8 = Vector([0, 0])
 
-    print(degrees(v7.angle(v8)))
+    print(v7.is_parallel(v8))
+    print(v7.is_orthogonal(v8))
 
 if __name__ == "__main__":
     main()
