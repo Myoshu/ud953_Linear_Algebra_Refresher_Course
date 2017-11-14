@@ -1,5 +1,5 @@
 import numpy
-from math import sqrt
+from math import sqrt, acos
 
 class Vector(object):
     def __init__(self, coordinates):
@@ -52,3 +52,9 @@ class Vector(object):
         except ZeroDivisionError:
             raise Exception('Cannot normalize the zero vector')
         """
+
+    def dot_product(self, v):
+        return sum([x*y for x,y in zip(self.coordinates, v.coordinates)])
+
+    def angle(self, v):
+        return acos(self.dot_product(v)/(self.magnitude()*v.magnitude()))
